@@ -2,6 +2,7 @@
 
 # requirements:
 pip install django django-rest-framework
+pip install Pillow
 
 npm install react-icons --save
 
