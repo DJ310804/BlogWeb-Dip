@@ -50,7 +50,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Ensure this is included
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -175,4 +175,11 @@ SIMPLE_JWT = {
 
 PASSWORD_RESET_TIMEOUT=900
 
-CORS_ORIGIN_ALLOW_ALL = True 
+# CORS settings
+CORS_ORIGIN_ALLOW_ALL = True  # Allow all origins for development
+
+# For production, you should specify allowed origins like this:
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:51173",
+#     "https://yourdomain.com",
+# ]

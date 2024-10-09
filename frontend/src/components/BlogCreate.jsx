@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import useAuth from '../hooks/useAuth';
 
 function BlogCreate() {
+  useAuth();
   const [formData, setFormData] = useState({
     blogName: '',
     author: '',
