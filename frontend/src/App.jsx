@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import './App.css';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Layout from './Layout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import BlogCreate from './components/BlogCreate';
 import Home from './components/Home';
+import Blogs from './components/Blogs';
+import Profile from './components/Profile';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 
@@ -22,6 +26,16 @@ function App() {
             <Route path="blogcreate" element={
               <ProtectedRoute>
               <BlogCreate />
+              </ProtectedRoute>} 
+              />
+            <Route path="blog" element={
+              <ProtectedRoute>
+              <Blogs />
+              </ProtectedRoute>
+              } />
+            <Route path="profile" element={
+              <ProtectedRoute>
+              <Profile />
               </ProtectedRoute>
               } />
           </Route>

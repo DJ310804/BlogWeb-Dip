@@ -1,11 +1,11 @@
-// src/components/NavBar.js
 import React, { useState } from "react";
-import { NavLink, useNavigate } from 'react-router-dom'; // Import NavLink
-import { useAuthContext } from "../context/AuthContext";
 import '../App.css';
 import { IonIcon } from '@ionic/react';
 import '@ionic/react/css/core.css';
 import logoImg from '../assets/imgs/blog-web-transparent.png';
+import { NavLink,useNavigate } from 'react-router-dom'; 
+import { menuOutline, closeOutline } from 'ionicons/icons';
+import { useAuthContext } from "../context/AuthContext";
 
 function NavBar() {
     const navigate = useNavigate();
@@ -16,6 +16,11 @@ function NavBar() {
     function onToggleMenu() {
         setMenuName(prevMenuName => prevMenuName === 'menu' ? 'close' : 'menu');
         setNavLinksClass(prevNavLinksClass => prevNavLinksClass === 'top-[-100%]' ? 'top-[9%]' : 'top-[-100%]');
+    }
+
+    function closeMenu() {
+        setMenuName('menu');
+        setNavLinksClass('top-[-100%]');
     }
 
     const handleLogout = () => {
@@ -29,20 +34,23 @@ function NavBar() {
         <div className="bg-slate-900 text-gray-300">
             <nav className="flex justify-between items-center w-[92%] mx-auto h-16">
                 <div>
-                    <NavLink to="/">
+                    <NavLink to="/"> 
                         <img className="w-20 h-9 cursor-pointer" src={logoImg} alt="logo" />
                     </NavLink>
                 </div>
-                <div className={`nav-links duration-500 md:static absolute bg-slate-900 md:min-h-fit min-h-[80vh] left-0 ${navLinksClass} md:w-auto w-full flex items-center px-5`}>
+                <div className={`nav-links duration-500 md:static absolute bg-slate-900 md:min-h-fit min-h-[80vh] left-0 ${navLinksClass} md:w-auto w-full flex items-center px-5`} style={{ zIndex: 50 }}>
                     <ul className="text-lg flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
                         <li>
-                            <NavLink className="hover:text-gray-500" to="/">Home</NavLink>
+                            <NavLink className="hover:text-gray-500" to="/" onClick={closeMenu}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink className="hover:text-gray-500" to="/blogcreate">Create Blog</NavLink>
+                            <NavLink className="hover:text-gray-500" to="/blogcreate" onClick={closeMenu}>Create Blog</NavLink>
                         </li>
                         <li>
-                            <NavLink className="hover:text-gray-500" to="/about">About</NavLink>
+                            <NavLink className="hover:text-gray-500" to="/blog" onClick={closeMenu}>Blog View</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="hover:text-gray-500" to="/profile" onClick={closeMenu}>Profile</NavLink>
                         </li>
                     </ul>
                 </div>
@@ -54,7 +62,12 @@ function NavBar() {
                             <button className="bg-[#6693e2] text-white px-3 py-1 rounded-full hover:bg-[#7587a5]">{loginStatus}</button>
                         </NavLink>
                     )}
-                    <IonIcon name={menuName} className="text-3xl cursor-pointer md:hidden" onClick={onToggleMenu}></IonIcon>
+                    <IonIcon 
+                        icon={menuName === 'menu' ? menuOutline : closeOutline} 
+                        className="text-3xl cursor-pointer md:hidden" 
+                        color="white" 
+                        onClick={onToggleMenu}
+                    />
                 </div>
             </nav>
         </div>

@@ -2,7 +2,10 @@
 
 # requirements:
 pip install django django-rest-framework
-pip install Pillow
+pip install python-dotenv
+pip install django-cors-headers
+pip install djangorestframework-simplejwt
+python -m pip install Pillow
 
 npm install react-icons --save
 

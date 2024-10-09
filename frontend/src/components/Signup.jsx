@@ -11,7 +11,7 @@ function Signup(){
                         <img src={logo} className="w-30 h-20" alt="logo" />
                     </div> 
                 </div>
-                <div className="w-full flex items-center justify-center lg:w-1/2">
+                <div className="w-full flex items-center justify-center lg:w-1/2 z-10">
                     <FormSignUp />
                 </div>
             </div>

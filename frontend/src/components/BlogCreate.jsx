@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import useAuth from '../hooks/useAuth';
 
 function BlogCreate() {
-  useAuth();
   const [formData, setFormData] = useState({
     blogName: '',
     author: '',
@@ -37,8 +35,8 @@ function BlogCreate() {
   ];
 
   return (
-    <div className="flex justify-center items-center pt-20 h-screen mb-6">
-      <div className="formcard  px-10 py-10 rounded-3xl border-2 border-gray-200 w-1/2 mt-10">
+    <div className="flex justify-center items-center pt-20 h-screen mb-6 ">
+      <div className="formcard  px-10 py-10 rounded-3xl border-2 border-gray-200 w-1/2 mt-10  ">
         <h1 className="text-4xl font-semibold flex justify-center items-center ">Create  Blog</h1>
         <form onSubmit={handleSubmit}>
           <div className="mt-6">

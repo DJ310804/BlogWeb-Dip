@@ -55,7 +55,7 @@ const FAQSection = () => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  className={`w-6 h-6 text-gray-400 transform ${openQuestion === id ? 'rotate-0' : '-rotate-180'}`}
+                  className={`w-6 h-6 text-gray-400 transform ${openQuestion === id ? 'rotate-180' : '-rotate-0'}`}
                 >
                   <path
                     strokeLinecap="round"
